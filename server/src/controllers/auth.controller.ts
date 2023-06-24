@@ -1,9 +1,9 @@
-import { Request, Response } from "express";
-import jwt from "jsonwebtoken";
-import bcryptjs from "bcryptjs";
-import User from "../models/User.model";
-import { ObjectId } from "mongoose";
-import redisClient from "../redisClient";
+import { Request, Response } from 'express';
+import jwt from 'jsonwebtoken';
+import bcryptjs from 'bcryptjs';
+import User from '../models/User.model';
+import { ObjectId } from 'mongoose';
+import { redisClient } from '../redisClient';
 
 // Register
 export const register = async (req: Request, res: Response) => {
@@ -11,7 +11,7 @@ export const register = async (req: Request, res: Response) => {
     const existingUser = await User.findOne({ email: req.body.email });
 
     if (existingUser)
-      return res.status(400).json({ message: "User Already Registered" });
+      return res.status(400).json({ message: 'User Already Registered' });
 
     const hashedPassword = await bcryptjs.hash(req.body.password, 12);
 
@@ -54,7 +54,7 @@ export const login = async (req: Request, res: Response) => {
       );
 
       if (!isCurrectPassword)
-        return res.status(400).json({ message: "Password Is Not Correct" });
+        return res.status(400).json({ message: 'Password Is Not Correct' });
 
       const accessToken = generateAccessToken(
         existingUser?._id,
