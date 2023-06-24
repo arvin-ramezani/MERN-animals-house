@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 // breakpoints
-import { device } from "../../utils/breakpoints";
+import { device } from '../../utils/breakpoints';
 
 export const Wrapper = styled.header`
   background: rgba(0, 0, 0, 0.8);
@@ -41,6 +41,7 @@ export const StyledButton = styled.button`
   color: #fff;
   border-radius: 0.4rem;
   margin: 0 0.2rem;
+
   :focus {
     color: red;
   }

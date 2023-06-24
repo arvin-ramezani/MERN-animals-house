@@ -14,7 +14,7 @@ export interface IAnimal {
 
 export interface IAnimalsState {
   animals: IAnimal[];
-  status: "idle" | "pending" | "failed";
+  status: 'idle' | 'pending' | 'failed';
 }
 
 export interface IUserInfo {
@@ -33,7 +33,7 @@ export interface IRegisterUser {
 
 export interface IUserState {
   userInfo: IUserInfo | null;
-  status: "idle" | "pending" | "failed";
+  status: 'idle' | 'pending' | 'failed';
 }
 
 export interface ILoginUser {
@@ -53,7 +53,7 @@ export interface ITokens {
   accessToken: string;
 }
 
-export interface ICardProps {
+export interface IAnimalCardProps {
   animal: IAnimal;
 }
 

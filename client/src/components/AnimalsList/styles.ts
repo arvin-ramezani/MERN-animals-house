@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
-import styled from "styled-components";
-import { device } from "../../utils/breakpoints";
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
+import { device } from '../../utils/breakpoints';
 
 export const Wrapper = styled.div`
   margin-top: 3rem;
@@ -64,7 +64,7 @@ export const Search = styled.div`
   }
 `;
 
-export const CardsContainer = styled.div`
+export const AnimalsListContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
