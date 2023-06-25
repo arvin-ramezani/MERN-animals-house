@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import LogoImg from "../../images/logo/logo.png";
+import React, { FC } from 'react';
+
 import {
   Wrapper,
   Container,
@@ -14,7 +14,7 @@ import {
   TopContent,
   Copyright,
   BottomContent,
-} from "./styles";
+} from './styles';
 
 const Footer: FC = () => {
   return (
@@ -22,43 +22,46 @@ const Footer: FC = () => {
       <Container>
         <Top>
           <Logo>
-            <img src={LogoImg} alt="logo" />
+            <img
+              src={'./images/logo/logo.png'}
+              alt='logo'
+            />
           </Logo>
           <IconWrapper>
             <li>
               <img
-                src="https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/facebook-logo.png"
-                alt=""
+                src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/facebook-logo.png'
+                alt=''
               />
             </li>
             <li>
               <img
-                src="https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/twitter.png"
-                alt=""
+                src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/twitter.png'
+                alt=''
               />
             </li>
             <li>
               <img
-                src="https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/google-plus.png"
-                alt=""
+                src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/google-plus.png'
+                alt=''
               />
             </li>
             <li>
               <img
-                src="https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/instagram.png"
-                alt=""
+                src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/instagram.png'
+                alt=''
               />
             </li>
             <li>
               <img
-                src="https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/pinterest.png"
-                alt=""
+                src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/pinterest.png'
+                alt=''
               />
             </li>
             <li>
               <img
-                src="https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/youtube.png"
-                alt=""
+                src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/youtube.png'
+                alt=''
               />
             </li>
           </IconWrapper>
@@ -94,20 +97,20 @@ const Footer: FC = () => {
         <TopContent>
           <li>
             <img
-              src="https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/secure.png"
-              alt=""
+              src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/secure.png'
+              alt=''
             />
           </li>
           <li>
             <img
-              src="https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/ssl.png"
-              alt=""
+              src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/ssl.png'
+              alt=''
             />
           </li>
           <li>
             <img
-              src="https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/ssl-icon.png"
-              alt=""
+              src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/ssl-icon.png'
+              alt=''
             />
           </li>
         </TopContent>
@@ -115,26 +118,26 @@ const Footer: FC = () => {
         <BottomContent>
           <li>
             <img
-              src="https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/cc_visa.png"
-              alt=""
+              src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/cc_visa.png'
+              alt=''
             />
           </li>
           <li>
             <img
-              src="https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/cc_mc.png"
-              alt=""
+              src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/cc_mc.png'
+              alt=''
             />
           </li>
           <li>
             <img
-              src="https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/cc_paypal.png"
-              alt=""
+              src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/cc_paypal.png'
+              alt=''
             />
           </li>
           <li>
             <img
-              src="https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/cc_amex.png"
-              alt=""
+              src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/cc_amex.png'
+              alt=''
             />
           </li>
         </BottomContent>

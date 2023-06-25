@@ -36,7 +36,7 @@ export const Wrapper = styled.div<IIsOpen>`
     align-items: center;
     font-size: 1rem;
     font-weight: bold;
-    margin: 0.5rem 0;
+    width: 100%;
   }
 
   .text-sm {
@@ -51,11 +51,10 @@ export const Wrapper = styled.div<IIsOpen>`
   }
 
   @media ${device.tablet} {
-    /* align-items: center; */
     gap: 1rem;
 
     display: ${({ open }) => (open ? 'flex' : 'block')};
-    width: ${({ open }) => (open ? '80%' : '430px')};
+    width: ${({ open }) => (open ? '80%' : '300px')};
     height: ${({ open }) => (open ? 'fit-content' : 'auto')};
   }
 
@@ -93,12 +92,8 @@ export const CardHeader = styled.div<IIsOpen>`
   }
 
   div.card-like {
-    /* position: ${({ open }) => (open ? 'absolute' : 'static')}; */
-    /* bottom: 0.5rem; */
-    /* left: 4rem; */
     color: #bedd67;
     cursor: 'pointer';
-    /* margin-left: auto; */
     display: flex;
     align-items: center;
     font-weight: 400;
@@ -120,13 +115,17 @@ export const CloseButton = styled(Button)`
 
 export const CardImg = styled.div`
   padding: 0rem 1rem;
-  height: 240px;
+  height: auto;
   margin: 1rem auto;
 
   img {
     width: 100%;
     height: 100%;
     border-radius: 0.5rem;
+  }
+
+  @media ${device.tablet} {
+    height: auto;
   }
 `;
 
@@ -137,7 +136,6 @@ export const CardBody = styled.div<IIsOpen>`
   justify-content: flex-start;
   height: fit-content;
   gap: 1rem;
-
   padding-bottom: 0.5rem;
   position: relative;
   transition: 0.5s;

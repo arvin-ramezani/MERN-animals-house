@@ -46,6 +46,14 @@ const AnimalCard: FC<IAnimalCardProps> = ({
     dispatch(likeAnimalAsync({ animalId: _id }));
   };
 
+  useEffect(() => {
+    if (openAnimalCard) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [openAnimalCard]);
+
   return (
     <>
       <AnimatePresence>
@@ -93,6 +101,7 @@ const AnimalCard: FC<IAnimalCardProps> = ({
         <CardBody open={openAnimalCard}>
           <CardImg>
             <img
+              // src={'./images/cats/ragdoll/luna.svg'}
               src={img}
               alt={breed}
             />

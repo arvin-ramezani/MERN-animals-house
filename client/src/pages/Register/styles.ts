@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import BgImage from "../../images/background/registration-background.jpg";
-import { device } from "../../utils/breakpoints";
+import styled from 'styled-components';
+
+import { device } from '../../utils/breakpoints';
 
 export const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)),
-    url(${BgImage}) no-repeat fixed;
+    url('./images/background/registration-background.jpg') no-repeat fixed;
   background-size: cover;
   display: flex;
   align-items: center;

@@ -12,10 +12,13 @@ export const FilterWrapper = styled.div`
   position: sticky;
   top: 0;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  @media ${device.mobileL} {
+  @media ${device.tablet} {
     top: 0;
-    display: flex;
+    flex-direction: row;
     align-items: flex-end;
     justify-content: center;
     gap: 1rem;
@@ -70,7 +73,7 @@ export const AnimalsListContainer = styled.div`
   align-items: center;
   gap: 1rem;
   position: relative;
-  margin-top: 2rem;
+  margin: 2rem 0;
   position: relative;
 
   @media ${device.mobileL} {
@@ -78,7 +81,7 @@ export const AnimalsListContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 5rem;
+    margin: 4rem 0;
   }
 `;
 

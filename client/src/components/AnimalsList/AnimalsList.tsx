@@ -91,13 +91,6 @@ const AnimalsList = () => {
             >
               Birds
             </FilterButton>
-            <FilterButton
-              whileHover={'open'}
-              variants={variants}
-              onClick={() => searchHandler('category', 'snake')}
-            >
-              Snakes
-            </FilterButton>
           </FilterContainer>
           <Search>
             <label htmlFor='searchByName'>Search By Animal Name</label>
