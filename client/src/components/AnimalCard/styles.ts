@@ -20,7 +20,7 @@ export const Wrapper = styled(motion.div)<IIsOpen>`
   background-color: #004699;
   color: #eaeaea;
   margin: 0.5rem 1rem;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   height: auto;
   transition: all 0.2s;
   overflow-y: auto;

@@ -1,20 +1,23 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchAnimals, fetchAnimalsByQuery } from "../../API/publicApi";
-import { likeAnimal } from "../../API/userApi";
-import { RootState } from "../../app/store";
-import { IAnimalsState } from "../../interfaces/interfaces";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { fetchAnimals, fetchAnimalsByQuery } from '../../API/publicApi';
+import { likeAnimal } from '../../API/userApi';
+import { RootState } from '../../app/store';
+import { IAnimalsState } from '../../interfaces/interfaces';
 
 const initialState: IAnimalsState = {
   animals: [],
-  status: "idle",
+  status: 'idle',
+  pagination: {
+    totalPages: 0,
+  },
 };
 
 // Fetch All Animals
 export const fetchAnimalsAsync = createAsyncThunk(
-  "animals/fetchAnimalsAsync",
+  'animals/fetchAnimalsAsync',
 
-  async () => {
-    const response = await fetchAnimals();
+  async (query: string) => {
+    const response = await fetchAnimals(query);
 
     return response.data;
   }
@@ -22,7 +25,7 @@ export const fetchAnimalsAsync = createAsyncThunk(
 
 // Fetch Animals By Query
 export const fetchAnimalsByQueryAsync = createAsyncThunk(
-  "animals/fetchAnimalsByQueryAsync",
+  'animals/fetchAnimalsByQueryAsync',
 
   async (query: string) => {
     const response = await fetchAnimalsByQuery(query);
@@ -33,7 +36,7 @@ export const fetchAnimalsByQueryAsync = createAsyncThunk(
 
 // Like Animal
 export const likeAnimalAsync = createAsyncThunk(
-  "animals/likeAnimalAsync",
+  'animals/likeAnimalAsync',
 
   async (animalId: { animalId: string }) => {
     const response = await likeAnimal(animalId);
@@ -43,7 +46,7 @@ export const likeAnimalAsync = createAsyncThunk(
 );
 
 export const animalsSlice = createSlice({
-  name: "animals",
+  name: 'animals',
   initialState,
 
   reducers: {},
@@ -51,29 +54,30 @@ export const animalsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchAnimalsAsync.pending, (state) => {
-        state.status = "pending";
+        state.status = 'pending';
       })
       .addCase(fetchAnimalsAsync.fulfilled, (state, { payload }) => {
-        state.status = "idle";
-        state.animals = payload;
+        state.status = 'idle';
+        state.animals = payload.animals;
+        state.pagination.totalPages = payload.pagination.pageCount;
       });
 
     builder
       .addCase(fetchAnimalsByQueryAsync.pending, (state) => {
-        state.status = "pending";
+        state.status = 'pending';
       })
       .addCase(fetchAnimalsByQueryAsync.fulfilled, (state, { payload }) => {
-        state.status = "idle";
+        state.status = 'idle';
         console.log(payload);
-        state.animals = payload;
+        state.animals = payload.animals;
       });
 
     builder
       .addCase(likeAnimalAsync.pending, (state) => {
-        state.status = "pending";
+        state.status = 'pending';
       })
       .addCase(likeAnimalAsync.fulfilled, (state, { payload }) => {
-        state.status = "idle";
+        state.status = 'idle';
         state.animals.splice(
           state.animals.findIndex((a) => a._id === payload._id),
           1,

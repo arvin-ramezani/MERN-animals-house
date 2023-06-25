@@ -11,7 +11,9 @@ import './index.css';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <SnackbarProvider>
+      <SnackbarProvider
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
         <App />
       </SnackbarProvider>
     </Provider>

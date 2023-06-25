@@ -1,24 +1,26 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   IAnimal,
+  IAnimalsResponse,
   ILoginUser,
   IRegisterUser,
   IUserInfo,
-} from "../interfaces/interfaces";
+} from '../interfaces/interfaces';
 
-const base_url = "http://localhost:5000/api";
+const base_url = 'http://localhost:5000/api';
 
 const publicRequestApi = axios.create({
   baseURL: base_url,
 });
 
-export const fetchAnimals = () => publicRequestApi.get<IAnimal[]>("/animals");
+export const fetchAnimals = (query?: string) =>
+  publicRequestApi.get<IAnimalsResponse>(`/animals?${query}`);
 
 export const fetchAnimalsByQuery = (query: string) =>
-  publicRequestApi.get<IAnimal[]>(`/animals?${query}`);
+  publicRequestApi.get<IAnimalsResponse>(`/animals?${query}`);
 
 export const registerUser = (userInfo: IRegisterUser) =>
-  publicRequestApi.post<IUserInfo>("/auth/register", userInfo);
+  publicRequestApi.post<IUserInfo>('/auth/register', userInfo);
 
 export const loginUser = (userInfo: ILoginUser) =>
-  publicRequestApi.post<IUserInfo>("/auth/login", userInfo);
+  publicRequestApi.post<IUserInfo>('/auth/login', userInfo);

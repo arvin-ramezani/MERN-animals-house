@@ -22,7 +22,7 @@ const AnimalCard: FC<IAnimalCardProps> = ({
   animal: { name, likes, breed, age, gender, price, color, about, img, _id },
 }) => {
   const dispatch = useAppDispatch();
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
   const { userInfo } = useAppSelector(selectUser);
   const [openAnimalCard, setOpenAnimalCard] = useState(false);
   const [like, setLike] = useState<boolean>(
@@ -78,12 +78,12 @@ const AnimalCard: FC<IAnimalCardProps> = ({
       </AnimatePresence>
 
       <Wrapper
-        whileHover={openAnimalCard ? undefined : { opacity: 0.8 }}
+        whileHover={openAnimalCard ? undefined : { backgroundColor: '#033f85' }}
         open={openAnimalCard}
         as={motion.div}
         variants={variants}
         animate={openAnimalCard ? 'open' : 'closed'}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.6 }}
         onClick={onAnimalCardClick}
       >
         <CardHeader open={openAnimalCard}>

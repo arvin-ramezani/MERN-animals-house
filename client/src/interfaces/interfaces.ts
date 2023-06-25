@@ -1,3 +1,11 @@
+export interface IAnimalsResponse {
+  pagination: {
+    animalsLength: number;
+    pageCount: number;
+  };
+  animals: IAnimal[];
+}
+
 export interface IAnimal {
   _id: string;
   name: string;
@@ -15,6 +23,9 @@ export interface IAnimal {
 export interface IAnimalsState {
   animals: IAnimal[];
   status: 'idle' | 'pending' | 'failed';
+  pagination: {
+    totalPages: number;
+  };
 }
 
 export interface IUserInfo {

@@ -85,94 +85,99 @@ export const AnimalsListContainer = styled.div`
   }
 `;
 
-export const Card = styled.div`
-  padding: 1rem 0.8rem;
-  background-color: #004699;
-  color: #eaeaea;
-  margin: 0.5rem 1rem;
-  border-radius: 0.3rem;
-  cursor: pointer;
-
-  .text-container {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: bold;
-    margin: 0.5rem 0;
-  }
-
-  .text-sm {
-    font-size: 0.8rem;
-    font-weight: normal;
-    margin-left: 0.5rem;
-  }
-
-  @media ${device.tablet} {
-    width: 40%;
-  }
-  @media ${device.laptop} {
-    width: 25%;
-  }
-`;
-
-export const CardHeader = styled.div`
-  display: flex;
-  font-size: 1.2rem;
-  font-weight: bold;
-  align-items: baseline;
-  gap: 1.2rem;
-
-  h3 {
-    margin: 0;
-  }
-
-  span {
-    font-weight: 100;
-  }
-`;
-
-export const CardImg = styled.div`
-  padding: 1rem 0;
+export const LoadMoreBlock = styled.div`
   width: 100%;
-  height: 240px;
-  margin: 1rem auto;
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
+  text-align: center;
 `;
 
-export const CardBody = styled.div`
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid;
+// export const Card = styled.div`
+//   padding: 1rem 0.8rem;
+//   background-color: #004699;
+//   color: #eaeaea;
+//   margin: 0.5rem 1rem;
+//   border-radius: 0.3rem;
+//   cursor: pointer;
 
-  p {
-    margin: 0;
-    letter-spacing: 1px;
-  }
-`;
+//   .text-container {
+//     display: flex;
+//     align-items: center;
+//     font-size: 1rem;
+//     font-weight: bold;
+//     margin: 0.5rem 0;
+//   }
 
-export const OpenIcon = styled.div`
-  cursor: pointer;
-`;
+//   .text-sm {
+//     font-size: 0.8rem;
+//     font-weight: normal;
+//     margin-left: 0.5rem;
+//   }
 
-export const CardFooter = styled.div`
-  padding-top: 0.5rem;
-  .footer-text-bg {
-    font-size: 1rem;
-    font-weight: bold;
-    margin: 0;
-  }
-  .footer-text-sm {
-    font-size: 0.8rem;
-    font-weight: normal;
-    margin-left: 0.5rem;
-    padding-top: 0.6rem;
-    line-height: 1.4rem;
-    letter-spacing: 1px;
-  }
-`;
+//   @media ${device.tablet} {
+//     width: 40%;
+//   }
+//   @media ${device.laptop} {
+//     width: 25%;
+//   }
+// `;
+
+// export const CardHeader = styled.div`
+//   display: flex;
+//   font-size: 1.2rem;
+//   font-weight: bold;
+//   align-items: baseline;
+//   gap: 1.2rem;
+
+//   h3 {
+//     margin: 0;
+//   }
+
+//   span {
+//     font-weight: 100;
+//   }
+// `;
+
+// export const CardImg = styled.div`
+//   padding: 1rem 0;
+//   width: 100%;
+//   height: 240px;
+//   margin: 1rem auto;
+
+//   img {
+//     width: 100%;
+//     height: 100%;
+//   }
+// `;
+
+// export const CardBody = styled.div`
+//   padding-bottom: 0.5rem;
+//   border-bottom: 1px solid;
+
+//   p {
+//     margin: 0;
+//     letter-spacing: 1px;
+//   }
+// `;
+
+// export const OpenIcon = styled.div`
+//   cursor: pointer;
+// `;
+
+// export const CardFooter = styled.div`
+//   padding-top: 0.5rem;
+//   .footer-text-bg {
+//     font-size: 1rem;
+//     font-weight: bold;
+//     margin: 0;
+//   }
+//   .footer-text-sm {
+//     font-size: 0.8rem;
+//     font-weight: normal;
+//     margin-left: 0.5rem;
+//     padding-top: 0.6rem;
+//     line-height: 1.4rem;
+//     letter-spacing: 1px;
+//   }
+// `;
 
 // Framer Motion Variants
 export const variants = {
