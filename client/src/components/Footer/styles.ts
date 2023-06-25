@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../../utils/breakpoints";
+import styled from 'styled-components';
+import { device } from '../../utils/breakpoints';
 
 export const Wrapper = styled.footer`
   background-color: #000;
@@ -52,15 +52,14 @@ export const IconWrapper = styled.ul`
   justify-content: space-around;
   gap: 1rem;
   align-items: center;
-  background-color: #171717;
   padding: 0.8rem 2rem;
-  border-radius: 3rem;
 `;
 
 export const Main = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-top: 2rem;
 
   h6 {
     font-size: 1.8rem;
@@ -72,6 +71,7 @@ export const Main = styled.div`
     background-color: #171717;
     padding: 0.8rem 0.8rem;
     width: 100%;
+    border-radius: 0.5rem;
   }
 
   @media ${device.tablet} {
@@ -112,7 +112,7 @@ export const Bottom = styled.div`
   margin-top: 4rem;
   gap: 1rem;
   background-color: #171717;
-  padding: 0.6rem;
+  padding: 1.6rem 0.6rem;
 
   @media ${device.laptop} {
     flex-direction: row;

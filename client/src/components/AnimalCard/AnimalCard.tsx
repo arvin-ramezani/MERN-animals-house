@@ -1,4 +1,5 @@
 import React, { FC, MouseEventHandler, useEffect, useState } from 'react';
+import { useSnackbar } from 'notistack';
 import {
   Wrapper,
   CardHeader,
@@ -21,6 +22,7 @@ const AnimalCard: FC<IAnimalCardProps> = ({
   animal: { name, likes, breed, age, gender, price, color, about, img, _id },
 }) => {
   const dispatch = useAppDispatch();
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { userInfo } = useAppSelector(selectUser);
   const [openAnimalCard, setOpenAnimalCard] = useState(false);
   const [like, setLike] = useState<boolean>(
@@ -29,7 +31,6 @@ const AnimalCard: FC<IAnimalCardProps> = ({
 
   const closeCardHandler: MouseEventHandler<HTMLElement> = (e) => {
     e.stopPropagation();
-    console.log('close');
     setOpenAnimalCard(false);
   };
 
@@ -42,6 +43,15 @@ const AnimalCard: FC<IAnimalCardProps> = ({
 
   const likeHandler: MouseEventHandler<HTMLDivElement> = (e) => {
     e.stopPropagation();
+
+    if (!userInfo) {
+      enqueueSnackbar('Please Login First !', {
+        variant: 'error',
+        anchorOrigin: { horizontal: 'center', vertical: 'top' },
+      });
+      return;
+    }
+
     setLike((like) => !like);
     dispatch(likeAnimalAsync({ animalId: _id }));
   };
@@ -68,6 +78,7 @@ const AnimalCard: FC<IAnimalCardProps> = ({
       </AnimatePresence>
 
       <Wrapper
+        whileHover={openAnimalCard ? undefined : { opacity: 0.8 }}
         open={openAnimalCard}
         as={motion.div}
         variants={variants}
@@ -83,7 +94,11 @@ const AnimalCard: FC<IAnimalCardProps> = ({
           >
             <motion.span
               whileHover={{ scale: 1.4 }}
-              whileTap={{ y: -28, rotate: 360, x: 10 }}
+              whileTap={{
+                y: -28,
+                rotate: 360,
+                x: 10,
+              }}
             >
               {like ? <AiFillHeart /> : <AiOutlineHeart />}
             </motion.span>

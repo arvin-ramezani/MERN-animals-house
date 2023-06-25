@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { motion } from 'framer-motion';
 
 import {
   Wrapper,
@@ -28,42 +29,60 @@ const Footer: FC = () => {
             />
           </Logo>
           <IconWrapper>
-            <li>
+            <motion.li
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <img
                 src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/facebook-logo.png'
                 alt=''
               />
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <img
                 src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/twitter.png'
                 alt=''
               />
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <img
                 src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/google-plus.png'
                 alt=''
               />
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <img
                 src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/instagram.png'
                 alt=''
               />
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <img
                 src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/pinterest.png'
                 alt=''
               />
-            </li>
-            <li>
+            </motion.li>
+            <motion.li
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <img
                 src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/youtube.png'
                 alt=''
               />
-            </li>
+            </motion.li>
           </IconWrapper>
         </Top>
         <Main>

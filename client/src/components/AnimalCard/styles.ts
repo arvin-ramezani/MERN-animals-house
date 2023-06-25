@@ -14,7 +14,7 @@ export const AnimalCardBackdrop = styled(motion.div)`
   z-index: 2;
 `;
 
-export const Wrapper = styled.div<IIsOpen>`
+export const Wrapper = styled(motion.div)<IIsOpen>`
   padding: 1rem 0.8rem 2rem;
   width: 80%;
   background-color: #004699;
@@ -93,7 +93,7 @@ export const CardHeader = styled.div<IIsOpen>`
 
   div.card-like {
     color: #bedd67;
-    cursor: 'pointer';
+    cursor: pointer;
     display: flex;
     align-items: center;
     font-weight: 400;

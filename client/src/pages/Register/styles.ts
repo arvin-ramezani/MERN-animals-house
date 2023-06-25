@@ -22,8 +22,7 @@ export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.6rem 0.4rem;
-  width: 300px;
+  padding: 0.6rem 1.4rem;
   margin: auto;
 
   @media ${device.tablet} {
@@ -46,7 +45,8 @@ export const Input = styled.div`
     padding: 0.2rem 0.4rem;
     height: 1.6rem;
     outline: none;
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
   }
 
   .password-input {
@@ -67,7 +67,7 @@ export const Icon = styled.img`
   width: 28px;
   height: 28px;
   position: absolute;
-  right: 0.4rem;
+  right: 0.8rem;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
