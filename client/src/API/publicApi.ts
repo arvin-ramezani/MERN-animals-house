@@ -1,6 +1,6 @@
 import axios from 'axios';
+
 import {
-  IAnimal,
   IAnimalsResponse,
   ILoginUser,
   IRegisterUser,

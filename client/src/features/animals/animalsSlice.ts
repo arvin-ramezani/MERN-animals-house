@@ -73,9 +73,9 @@ export const animalsSlice = createSlice({
       });
 
     builder
-      .addCase(likeAnimalAsync.pending, (state) => {
-        state.status = 'pending';
-      })
+      // .addCase(likeAnimalAsync.pending, (state) => {
+      //   state.status = 'pending';
+      // })
       .addCase(likeAnimalAsync.fulfilled, (state, { payload }) => {
         state.status = 'idle';
         state.animals.splice(

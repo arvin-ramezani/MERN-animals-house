@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 // breakpoints
 import { device } from '../../utils/breakpoints';
+import { motion } from 'framer-motion';
 
 export const Wrapper = styled.header`
   background: rgba(0, 0, 0, 0.8);
@@ -32,7 +33,7 @@ export const AccountWrapper = styled.div`
   }
 `;
 
-export const StyledButton = styled.button`
+export const StyledButton = styled(motion.button)`
   cursor: pointer;
   background-color: #004699;
   border: none;

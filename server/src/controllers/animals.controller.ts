@@ -3,7 +3,7 @@ import Animal from '../models/Animal.model';
 
 export const fetchAllAnimals = async (req: Request, res: Response) => {
   const category = req.query.category?.toString().toLowerCase();
-  const name = req.query.name as string;
+  const search = req.query.search as string;
   let animals;
 
   // const title = new RegExp(searchQuery, "i")
@@ -14,13 +14,20 @@ export const fetchAllAnimals = async (req: Request, res: Response) => {
   // Query Params
   let query: {
     category?: string;
-    name?: { $regex: RegExp };
+    $or?: [{ name: { $regex: RegExp } }, { breed: { $regex: RegExp } }];
   };
 
   if (category) {
     query = { category };
-  } else if (name) {
-    query = { name: { $regex: new RegExp(name, 'i') } };
+  } else if (search) {
+    console.log(search, 'search');
+
+    query = {
+      $or: [
+        { name: { $regex: new RegExp(search.trim(), 'i') } },
+        { breed: { $regex: new RegExp(search.trim(), 'i') } },
+      ],
+    };
   } else {
     query = {};
   }

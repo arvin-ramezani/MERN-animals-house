@@ -47,7 +47,7 @@ export const Wrapper = styled(motion.div)<IIsOpen>`
 
   @media ${device.mobileL} {
     transform: ${({ open }) => (open ? 'scale(1.5, 1.2)' : 'scale(1)')};
-    width: ${({ open }) => (open ? 'auto' : '430px')};
+    width: ${({ open }) => (open ? 'auto' : '370px')};
   }
 
   @media ${device.tablet} {
@@ -115,7 +115,7 @@ export const CloseButton = styled(Button)`
 
 export const CardImg = styled.div`
   padding: 0rem 1rem;
-  height: auto;
+  min-height: 134px;
   margin: 1rem auto;
 
   img {
@@ -124,8 +124,16 @@ export const CardImg = styled.div`
     border-radius: 0.5rem;
   }
 
+  @media ${device.mobileL} {
+    height: 200px;
+  }
+
   @media ${device.tablet} {
-    height: auto;
+    height: 160px;
+  }
+
+  @media ${device.laptop} {
+    height: 235px;
   }
 `;
 
@@ -189,9 +197,8 @@ export const CardFooter = styled.div<IIsOpen>`
 export const variants: Variants = {
   open: {
     rotate: [0, 360, 360, 360],
-    // transform: 'translateY(-50%)',
+
     y: '-50%',
-    height: '70%',
   },
   closed: { scale: 1, rotate: 0, y: 0, height: 'auto' },
 };

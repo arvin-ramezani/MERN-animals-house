@@ -10,6 +10,12 @@ import {
 import { useAppSelector } from '../../app/Hook';
 import { persistor } from '../../app/store';
 import { selectUser } from '../../features/user/userSlice';
+import { Variants } from 'framer-motion';
+
+const styledButtonVariants: Variants = {
+  hover: { scale: 1.1 },
+  tap: { scale: 0.9 },
+};
 
 const Navbar: FC = () => {
   const { userInfo } = useAppSelector(selectUser);
@@ -32,6 +38,9 @@ const Navbar: FC = () => {
         <AccountWrapper>
           {userInfo ? (
             <StyledButton
+              variants={styledButtonVariants}
+              whileHover={'hover'}
+              whileTap={'tap'}
               className='navbar-logout'
               onClick={logoutHandler}
             >
@@ -40,10 +49,22 @@ const Navbar: FC = () => {
           ) : (
             <>
               <Link to='/login'>
-                <StyledButton>Login</StyledButton>
+                <StyledButton
+                  variants={styledButtonVariants}
+                  whileHover={'hover'}
+                  whileTap={'tap'}
+                >
+                  Login
+                </StyledButton>
               </Link>
               <Link to='/register'>
-                <StyledButton>Register</StyledButton>
+                <StyledButton
+                  variants={styledButtonVariants}
+                  whileHover={'hover'}
+                  whileTap={'tap'}
+                >
+                  Register
+                </StyledButton>
               </Link>
             </>
           )}

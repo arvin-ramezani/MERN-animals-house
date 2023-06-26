@@ -83,7 +83,7 @@ const AnimalCard: FC<IAnimalCardProps> = ({
         as={motion.div}
         variants={variants}
         animate={openAnimalCard ? 'open' : 'closed'}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.8 }}
         onClick={onAnimalCardClick}
       >
         <CardHeader open={openAnimalCard}>
@@ -116,7 +116,6 @@ const AnimalCard: FC<IAnimalCardProps> = ({
         <CardBody open={openAnimalCard}>
           <CardImg>
             <img
-              // src={'./images/cats/ragdoll/luna.svg'}
               src={img}
               alt={breed}
             />

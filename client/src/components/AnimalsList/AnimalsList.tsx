@@ -10,7 +10,7 @@ import {
   AnimalsListContainer,
   LoadMoreBlock,
 } from './styles';
-import React, { useEffect, useState } from 'react';
+import React, { KeyboardEventHandler, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/Hook';
 import {
   fetchAnimalsAsync,
@@ -21,25 +21,25 @@ import { StyledButton } from '../Navbar/styles';
 import { useHistory, useLocation } from 'react-router-dom';
 import AnimalCard from '../AnimalCard/AnimalCard';
 import { CloseButton } from '../AnimalCard/styles';
+import AnimalsListSkeleton from './AnimalsListSkeleton';
+import { AnimatePresence } from 'framer-motion';
+import useQuery from '../../hooks/useQuery';
 
-function useQuery() {
-  const { search } = useLocation();
-  // console.log(search, 'search');
-  // console.log(new URLSearchParams(search), 'search');
-
-  // return search;
-  return React.useMemo(() => new URLSearchParams(search), [search]);
-}
+// function useQuery() {
+//   const { search } = useLocation();
+//   return React.useMemo(() => new URLSearchParams(search), [search]);
+// }
 
 const AnimalsList = () => {
   const history = useHistory();
   const {
     animals,
     pagination: { totalPages },
+    status,
   } = useAppSelector(selectAnimals);
   const [searchInputValue, setSearchInputValue] = useState('');
-  let query = useQuery();
-  const [page, setPage] = useState(+(query.get('page') || 1));
+  const { getQuery } = useQuery();
+  const [page, setPage] = useState(+(getQuery('page') || 1));
   const { enqueueSnackbar } = useSnackbar();
 
   const dispatch = useAppDispatch();
@@ -50,8 +50,8 @@ const AnimalsList = () => {
       return;
     }
 
-    const categoryQuery = query.get('category');
-    const nameQuery = query.get('name');
+    const categoryQuery = getQuery('category');
+    const nameQuery = getQuery('name');
     const newPage = page + 1;
 
     console.log(categoryQuery, nameQuery, page, 'setPage');
@@ -81,12 +81,16 @@ const AnimalsList = () => {
     return;
   };
 
+  const handleKeyPress: KeyboardEventHandler<HTMLInputElement> = (e) => {
+    if (e.key === 'Enter') {
+      searchHandler('search');
+    }
+  };
+
   const searchOnChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
     setSearchInputValue(e.target.value);
 
   const searchHandler = (queryKey: string, value?: string) => {
-    // let queryKey: string;
-
     if (queryKey === 'category' && value === 'all') {
       dispatch(fetchAnimalsAsync(`page=${1}`)).then((res) => {
         history.push('/');
@@ -95,51 +99,24 @@ const AnimalsList = () => {
     }
 
     if (queryKey === 'category') {
-      // queryKey = 'category';
-
-      // let newQuery = {queryKey: }
-
       dispatch(fetchAnimalsAsync(`${queryKey}=${value}`)).then((res) => {
         history.push(`?category=${value}`);
       });
-      // dispatch(fetchAnimalsByQueryAsync(`${queryKey}=${value}`)).then((res) =>
-      //   history.push(`?category=${value}`)
-      // );
       return;
     }
 
-    if (queryKey === 'name') {
-      // let animalName = searchInputValue;
+    if (queryKey === 'search') {
       if (searchInputValue?.trim()) {
-        // queryKey = 'name';
         dispatch(fetchAnimalsAsync(`${queryKey}=${searchInputValue}`)).then(
           (res) => {
-            history.push(`name=${searchInputValue}`);
+            history.push(`?search=${searchInputValue}`);
             setSearchInputValue('');
           }
         );
-        // dispatch(
-        //   fetchAnimalsByQueryAsync(`${queryKey}=${searchInputValue}`)
-        // ).then((res) => {
-        //   history.push(`?name=${searchInputValue}`);
-        //   setSearchInputValue('');
-        // });
         return;
       }
     }
   };
-
-  // useEffect(() => {
-  //   console.log(page, 'page');
-  // }, [page]);
-
-  // useEffect(() => {
-  //   setPage(+(query.get('page') || 1));
-  // }, [query]);
-
-  // useEffect(() => {
-  //   dispatch(fetchAnimalsAsync(`page=${page}`));
-  // }, [dispatch]);
 
   return (
     <>
@@ -150,7 +127,6 @@ const AnimalsList = () => {
               whileHover={'open'}
               variants={variants}
               onClick={() => searchHandler('category', 'all')}
-              // onClick={() => dispatch(fetchAnimalsAsync(`page=${page}`))}
             >
               All
             </FilterButton>
@@ -177,17 +153,18 @@ const AnimalsList = () => {
             </FilterButton>
           </FilterContainer>
           <Search>
-            <label htmlFor='searchByName'>Search By Animal Name</label>
+            <label htmlFor='searchByName'>Search By Animal Name or Breed</label>
             <input
               value={searchInputValue}
               onChange={searchOnChangeHandler}
+              onKeyDown={handleKeyPress}
               type='text'
               id='searchByName'
-              placeholder='Search By Animal Name...'
+              placeholder='Search By Name & breed.'
             />
             <StyledButton
               style={{ margin: '0.2rem' }}
-              onClick={() => searchHandler('name')}
+              onClick={() => searchHandler('search')}
             >
               Search
             </StyledButton>
@@ -195,12 +172,19 @@ const AnimalsList = () => {
         </FilterWrapper>
 
         <AnimalsListContainer>
-          {animals.map((animal) => (
-            <AnimalCard
-              key={animal._id}
-              animal={animal}
-            />
-          ))}
+          <AnimatePresence>
+            {status === 'pending' && (
+              <AnimalsListSkeleton key='animalsListSkeleton' />
+            )}
+
+            {status === 'idle' &&
+              animals.map((animal) => (
+                <AnimalCard
+                  key={animal._id}
+                  animal={animal}
+                />
+              ))}
+          </AnimatePresence>
 
           <LoadMoreBlock>
             <CloseButton onClick={onLoadMore}>Load More</CloseButton>
