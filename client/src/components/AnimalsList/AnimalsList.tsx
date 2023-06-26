@@ -17,7 +17,7 @@ import {
   fetchAnimalsAsync,
   selectAnimals,
 } from '../../features/animals/animalsSlice';
-import { StyledButton } from '../Navbar/styles';
+import { StyledButton } from '../Navbar/Navbar.styled';
 import AnimalCard from '../AnimalCard/AnimalCard';
 import { CloseButton } from '../AnimalCard/AnimalCard.styled';
 import useQuery from '../../hooks/useQuery';

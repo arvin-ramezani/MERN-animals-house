@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   margin: auto;
 `;
+
 export const FormContainer = styled.form`
   border-radius: 0.2rem;
   background-color: #1ac913;
@@ -29,6 +30,7 @@ export const FormContainer = styled.form`
     width: 500px;
   }
 `;
+
 export const Input = styled.div`
   margin: 0.5rem auto;
   width: 240px;

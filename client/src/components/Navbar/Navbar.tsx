@@ -6,7 +6,7 @@ import {
   Logo,
   AccountWrapper,
   StyledButton,
-} from './styles';
+} from './Navbar.styled';
 import { useAppSelector } from '../../app/Hook';
 import { persistor } from '../../app/store';
 import { selectUser } from '../../features/user/userSlice';

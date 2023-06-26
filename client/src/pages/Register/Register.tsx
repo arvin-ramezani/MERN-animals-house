@@ -1,4 +1,9 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
+
 import {
   Wrapper,
   Container,
@@ -7,17 +12,13 @@ import {
   HelperText,
   Icon,
   LoginLink,
-} from './styles';
-import { StyledButton } from '../../components/Navbar/styles';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+} from './Register.styled';
+import { StyledButton } from '../../components/Navbar/Navbar.styled';
 import { loginSchema, registerSchema } from './yupSchema';
-import { useDispatch } from 'react-redux';
 import {
   loginUserAsync,
   registerUserAsync,
 } from '../../features/user/userSlice';
-import { useHistory } from 'react-router';
 import { IRegisterFormValues } from '../../interfaces/interfaces';
 
 const Register: FC<{ login: boolean }> = ({ login }) => {
@@ -57,6 +58,7 @@ const Register: FC<{ login: boolean }> = ({ login }) => {
       <Container>
         <FormContainer onSubmit={handleSubmit(submitHandler)}>
           <h1>WellCome</h1>
+
           {isLogin || (
             <Input>
               <label htmlFor='username'>Username *</label>
@@ -69,14 +71,17 @@ const Register: FC<{ login: boolean }> = ({ login }) => {
               )}
             </Input>
           )}
+
           <Input>
             <label htmlFor='email'>Email *</label>
             <input
               type='email'
               {...register('email')}
             />
+
             {errors.email && <HelperText>{errors.email.message}</HelperText>}
           </Input>
+
           <Input>
             <label htmlFor='password'>Password *</label>
             <div className='password-input'>
@@ -94,10 +99,12 @@ const Register: FC<{ login: boolean }> = ({ login }) => {
                 alt='showPassword'
               />
             </div>
+
             {errors.password && (
               <HelperText>{errors.password.message}</HelperText>
             )}
           </Input>
+
           {isLogin || (
             <Input>
               <label htmlFor='confirmPassword'>Confirm Password *</label>
@@ -105,14 +112,17 @@ const Register: FC<{ login: boolean }> = ({ login }) => {
                 type='password'
                 {...register('confirmPassword')}
               />
+
               {errors.confirmPassword && (
                 <HelperText>{errors.confirmPassword.message}</HelperText>
               )}
             </Input>
           )}
+
           <StyledButton type='submit'>
             {isLogin ? 'Login' : 'Register'}
           </StyledButton>
+
           <p>
             {isLogin
               ? "Don't have and account ? "
