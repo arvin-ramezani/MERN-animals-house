@@ -1,6 +1,6 @@
 import { Variants } from 'framer-motion';
 
-export const animalsListSkeletonVariants: Variants = {
+export const animalCardSkeletonVariants: Variants = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
 };

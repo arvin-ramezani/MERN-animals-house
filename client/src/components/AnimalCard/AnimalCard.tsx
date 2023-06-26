@@ -18,9 +18,11 @@ import { selectUser } from '../../features/user/userSlice';
 import { likeAnimalAsync } from '../../features/animals/animalsSlice';
 import { useAppDispatch, useAppSelector } from '../../app/Hook';
 import { animalCardVariants } from './AnimalCard.variants';
+import AnimalCardSkeleton from './AnimalCardSkeleton';
 
 const AnimalCard: FC<IAnimalCardProps> = ({
   animal: { name, likes, breed, age, gender, price, color, about, img, _id },
+  loading,
 }) => {
   const dispatch = useAppDispatch();
   const { enqueueSnackbar } = useSnackbar();
@@ -65,6 +67,10 @@ const AnimalCard: FC<IAnimalCardProps> = ({
     }
   }, [openAnimalCard]);
 
+  // useEffect(() => {
+  //   console.log(loading, 'loading');
+  // }, [loading]);
+
   return (
     <>
       <AnimatePresence>
@@ -87,6 +93,10 @@ const AnimalCard: FC<IAnimalCardProps> = ({
         transition={{ duration: 0.8 }}
         onClick={onAnimalCardClick}
       >
+        <AnimatePresence>
+          {loading && <AnimalCardSkeleton key='animalCardSkeleton' />}
+        </AnimatePresence>
+
         <CardHeader open={openAnimalCard}>
           <h3>{name}</h3>
           <div

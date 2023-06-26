@@ -66,6 +66,7 @@ export interface ITokens {
 
 export interface IAnimalCardProps {
   animal: IAnimal;
+  loading: boolean;
 }
 
 export interface ICardStyledComponentsProps {

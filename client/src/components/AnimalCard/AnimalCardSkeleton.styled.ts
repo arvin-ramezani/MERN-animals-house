@@ -29,15 +29,18 @@ export const StyledAnimalsListSkeleton = styled(motion.div)`
   }
 `;
 
-export const StyledAnimalSkeleton = styled.div`
+export const StyledAnimalSkeleton = styled(motion.div)`
   background: ${skeletonBackgrounds.main};
   padding: 1rem 0.8rem 2rem;
   width: 80%;
-  margin: 0.5rem 1rem;
+  margin: 0;
   border-radius: ${skeletonBorderRadius.large};
   height: auto;
-  position: relative;
+  position: absolute;
   overflow: hidden;
+  left: 0;
+  top: 0;
+  z-index: 2;
 
   @media ${device.mobileL} {
     width: 430px;

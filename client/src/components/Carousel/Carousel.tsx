@@ -13,7 +13,7 @@ const Carousel: FC = () => {
   return (
     <Wrapper>
       <AutoplaySlider
-        // play
+        play
         cancelOnInteraction={false}
         media={desktopSlides}
       />

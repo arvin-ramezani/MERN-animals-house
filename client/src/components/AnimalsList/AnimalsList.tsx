@@ -20,7 +20,6 @@ import {
 import { StyledButton } from '../Navbar/styles';
 import AnimalCard from '../AnimalCard/AnimalCard';
 import { CloseButton } from '../AnimalCard/AnimalCard.styled';
-import AnimalsListSkeleton from './AnimalsListSkeleton';
 import useQuery from '../../hooks/useQuery';
 import { animalsListVariants } from './AnimalsList.variants';
 
@@ -164,17 +163,13 @@ const AnimalsList = () => {
 
       <AnimalsListContainer>
         <AnimatePresence>
-          {status === 'pending' && (
-            <AnimalsListSkeleton key='animalsListSkeleton' />
-          )}
-
-          {status === 'idle' &&
-            animals.map((animal) => (
-              <AnimalCard
-                key={animal._id}
-                animal={animal}
-              />
-            ))}
+          {animals.map((animal) => (
+            <AnimalCard
+              loading={status === 'pending'}
+              key={animal._id}
+              animal={animal}
+            />
+          ))}
         </AnimatePresence>
 
         <LoadMoreBlock>
