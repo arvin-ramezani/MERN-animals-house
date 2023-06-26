@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { Variants, motion } from 'framer-motion';
+
 import { device } from '../../utils/breakpoints';
 import { StyledButton as Button } from '../Navbar/styles';
 import { ICardStyledComponentsProps as IIsOpen } from '../../interfaces/interfaces';
-import { Variants, motion } from 'framer-motion';
 
 export const AnimalCardBackdrop = styled(motion.div)`
   position: fixed;
@@ -73,10 +74,6 @@ export const CardHeader = styled.div<IIsOpen>`
   gap: 0.4rem;
   flex: 1;
 
-  @media ${device.tablet} {
-    flex-direction: ${({ open }) => (open ? 'column' : 'row')};
-  }
-
   h3 {
     margin: 0;
   }
@@ -102,6 +99,10 @@ export const CardHeader = styled.div<IIsOpen>`
       margin: 0 0.4rem 0 0;
       font-size: 1.4rem;
     }
+  }
+
+  @media ${device.tablet} {
+    flex-direction: ${({ open }) => (open ? 'column' : 'row')};
   }
 `;
 
@@ -192,13 +193,3 @@ export const CardFooter = styled.div<IIsOpen>`
     color: #bedd67;
   }
 `;
-
-// Framer Motion Variants
-export const variants: Variants = {
-  open: {
-    rotate: [0, 360, 360, 360],
-
-    y: '-50%',
-  },
-  closed: { scale: 1, rotate: 0, y: 0, height: 'auto' },
-};

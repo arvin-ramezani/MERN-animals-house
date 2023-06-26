@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+
 import { device } from '../../utils/breakpoints';
 
 export const Wrapper = styled.div`
@@ -90,9 +91,3 @@ export const LoadMoreBlock = styled.div`
   width: 100%;
   text-align: center;
 `;
-
-// Framer Motion Variants
-export const variants = {
-  open: { scale: 1.1 },
-  close: { y: -100, opacity: 0 },
-};

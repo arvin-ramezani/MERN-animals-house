@@ -32,6 +32,7 @@ export const Top = styled.div`
     align-items: center;
   }
 `;
+
 export const Logo = styled.div`
   width: 150px;
   margin: auto;
@@ -101,6 +102,7 @@ export const Browse = styled.div`
     }
   }
 `;
+
 export const About = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
 `;

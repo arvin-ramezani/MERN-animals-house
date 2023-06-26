@@ -1,5 +1,9 @@
 import React, { FC, MouseEventHandler, useEffect, useState } from 'react';
 import { useSnackbar } from 'notistack';
+import { AnimatePresence, motion } from 'framer-motion';
+import { AiOutlineHeart } from 'react-icons/ai';
+import { AiFillHeart } from 'react-icons/ai';
+
 import {
   Wrapper,
   CardHeader,
@@ -7,16 +11,13 @@ import {
   CardBody,
   CardFooter,
   CloseButton,
-  variants,
   AnimalCardBackdrop,
-} from './styles';
+} from './AnimalCard.styled';
 import { IAnimalCardProps } from '../../interfaces/interfaces';
-import { AnimatePresence, motion } from 'framer-motion';
-import { AiOutlineHeart } from 'react-icons/ai';
-import { AiFillHeart } from 'react-icons/ai';
 import { selectUser } from '../../features/user/userSlice';
 import { likeAnimalAsync } from '../../features/animals/animalsSlice';
 import { useAppDispatch, useAppSelector } from '../../app/Hook';
+import { animalCardVariants } from './AnimalCard.variants';
 
 const AnimalCard: FC<IAnimalCardProps> = ({
   animal: { name, likes, breed, age, gender, price, color, about, img, _id },
@@ -81,7 +82,7 @@ const AnimalCard: FC<IAnimalCardProps> = ({
         whileHover={openAnimalCard ? undefined : { backgroundColor: '#033f85' }}
         open={openAnimalCard}
         as={motion.div}
-        variants={variants}
+        variants={animalCardVariants}
         animate={openAnimalCard ? 'open' : 'closed'}
         transition={{ duration: 0.8 }}
         onClick={onAnimalCardClick}

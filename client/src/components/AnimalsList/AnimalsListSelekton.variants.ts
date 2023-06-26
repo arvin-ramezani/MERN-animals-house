@@ -11,7 +11,6 @@ export const AnimalsListShimmerVariants: Variants = {
     rotate: 12,
   },
   animate: {
-    // x: 100,
     x: 700,
     rotate: 12,
 

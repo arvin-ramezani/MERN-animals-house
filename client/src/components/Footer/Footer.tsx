@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { motion } from 'framer-motion';
 
 import {
@@ -15,7 +15,7 @@ import {
   TopContent,
   Copyright,
   BottomContent,
-} from './styles';
+} from './Footer.styled';
 
 const Footer: FC = () => {
   return (
@@ -34,7 +34,7 @@ const Footer: FC = () => {
               whileTap={{ scale: 0.9 }}
             >
               <img
-                src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/facebook-logo.png'
+                src='./images/icons/facebook.svg'
                 alt=''
               />
             </motion.li>
@@ -43,7 +43,7 @@ const Footer: FC = () => {
               whileTap={{ scale: 0.9 }}
             >
               <img
-                src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/twitter.png'
+                src='./images/icons/twitter.svg'
                 alt=''
               />
             </motion.li>
@@ -52,7 +52,7 @@ const Footer: FC = () => {
               whileTap={{ scale: 0.9 }}
             >
               <img
-                src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/google-plus.png'
+                src='./images/icons/google-plus.svg'
                 alt=''
               />
             </motion.li>
@@ -61,7 +61,7 @@ const Footer: FC = () => {
               whileTap={{ scale: 0.9 }}
             >
               <img
-                src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/instagram.png'
+                src='./images/icons/instagram.svg'
                 alt=''
               />
             </motion.li>
@@ -70,7 +70,7 @@ const Footer: FC = () => {
               whileTap={{ scale: 0.9 }}
             >
               <img
-                src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/pinterest.png'
+                src='./images/icons/pinterest.svg'
                 alt=''
               />
             </motion.li>
@@ -79,7 +79,7 @@ const Footer: FC = () => {
               whileTap={{ scale: 0.9 }}
             >
               <img
-                src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/youtube.png'
+                src='./images/icons/youtube.svg'
                 alt=''
               />
             </motion.li>
@@ -116,19 +116,19 @@ const Footer: FC = () => {
         <TopContent>
           <li>
             <img
-              src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/secure.png'
+              src='./images/icons/footer-secure.svg'
               alt=''
             />
           </li>
           <li>
             <img
-              src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/ssl.png'
+              src='./images/icons/footer-ssl.svg'
               alt=''
             />
           </li>
           <li>
             <img
-              src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/ssl-icon.png'
+              src='./images/icons/footer-ssl-2.svg'
               alt=''
             />
           </li>
@@ -137,25 +137,25 @@ const Footer: FC = () => {
         <BottomContent>
           <li>
             <img
-              src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/cc_visa.png'
+              src='./images/icons/footer-visa.svg'
               alt=''
             />
           </li>
           <li>
             <img
-              src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/cc_mc.png'
+              src='./images/icons/footer-mc.svg'
               alt=''
             />
           </li>
           <li>
             <img
-              src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/cc_paypal.png'
+              src='./images/icons/footer-paypal.svg'
               alt=''
             />
           </li>
           <li>
             <img
-              src='https://www.xyzreptiles.com/wp-content/themes/xyzreptiles/assets/images/cc_amex.png'
+              src='./images/icons/footer-amex.svg'
               alt=''
             />
           </li>

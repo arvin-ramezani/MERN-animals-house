@@ -1,34 +1,28 @@
+import React, { KeyboardEventHandler, useState } from 'react';
 import { useSnackbar } from 'notistack';
+import { useHistory, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 import {
   Wrapper,
   FilterWrapper,
   FilterContainer,
   FilterButton,
-  variants,
   Search,
   AnimalsListContainer,
   LoadMoreBlock,
-} from './styles';
-import React, { KeyboardEventHandler, useEffect, useState } from 'react';
+} from './AnimalsList.styled';
 import { useAppDispatch, useAppSelector } from '../../app/Hook';
 import {
   fetchAnimalsAsync,
-  // fetchAnimalsByQueryAsync,
   selectAnimals,
 } from '../../features/animals/animalsSlice';
 import { StyledButton } from '../Navbar/styles';
-import { useHistory, useLocation } from 'react-router-dom';
 import AnimalCard from '../AnimalCard/AnimalCard';
-import { CloseButton } from '../AnimalCard/styles';
+import { CloseButton } from '../AnimalCard/AnimalCard.styled';
 import AnimalsListSkeleton from './AnimalsListSkeleton';
-import { AnimatePresence } from 'framer-motion';
 import useQuery from '../../hooks/useQuery';
-
-// function useQuery() {
-//   const { search } = useLocation();
-//   return React.useMemo(() => new URLSearchParams(search), [search]);
-// }
+import { animalsListVariants } from './AnimalsList.variants';
 
 const AnimalsList = () => {
   const history = useHistory();
@@ -53,8 +47,6 @@ const AnimalsList = () => {
     const categoryQuery = getQuery('category');
     const nameQuery = getQuery('name');
     const newPage = page + 1;
-
-    console.log(categoryQuery, nameQuery, page, 'setPage');
 
     if (categoryQuery) {
       dispatch(
@@ -119,79 +111,77 @@ const AnimalsList = () => {
   };
 
   return (
-    <>
-      <Wrapper>
-        <FilterWrapper>
-          <FilterContainer>
-            <FilterButton
-              whileHover={'open'}
-              variants={variants}
-              onClick={() => searchHandler('category', 'all')}
-            >
-              All
-            </FilterButton>
-            <FilterButton
-              whileHover={'open'}
-              variants={variants}
-              onClick={() => searchHandler('category', 'cat')}
-            >
-              Cats
-            </FilterButton>
-            <FilterButton
-              whileHover={'open'}
-              variants={variants}
-              onClick={() => searchHandler('category', 'dog')}
-            >
-              Dogs
-            </FilterButton>
-            <FilterButton
-              whileHover={'open'}
-              variants={variants}
-              onClick={() => searchHandler('category', 'bird')}
-            >
-              Birds
-            </FilterButton>
-          </FilterContainer>
-          <Search>
-            <label htmlFor='searchByName'>Search By Animal Name or Breed</label>
-            <input
-              value={searchInputValue}
-              onChange={searchOnChangeHandler}
-              onKeyDown={handleKeyPress}
-              type='text'
-              id='searchByName'
-              placeholder='Search By Name & breed.'
-            />
-            <StyledButton
-              style={{ margin: '0.2rem' }}
-              onClick={() => searchHandler('search')}
-            >
-              Search
-            </StyledButton>
-          </Search>
-        </FilterWrapper>
+    <Wrapper>
+      <FilterWrapper>
+        <FilterContainer>
+          <FilterButton
+            whileHover={'open'}
+            variants={animalsListVariants}
+            onClick={() => searchHandler('category', 'all')}
+          >
+            All
+          </FilterButton>
+          <FilterButton
+            whileHover={'open'}
+            variants={animalsListVariants}
+            onClick={() => searchHandler('category', 'cat')}
+          >
+            Cats
+          </FilterButton>
+          <FilterButton
+            whileHover={'open'}
+            variants={animalsListVariants}
+            onClick={() => searchHandler('category', 'dog')}
+          >
+            Dogs
+          </FilterButton>
+          <FilterButton
+            whileHover={'open'}
+            variants={animalsListVariants}
+            onClick={() => searchHandler('category', 'bird')}
+          >
+            Birds
+          </FilterButton>
+        </FilterContainer>
+        <Search>
+          <label htmlFor='searchByName'>Search By Animal Name or Breed</label>
+          <input
+            value={searchInputValue}
+            onChange={searchOnChangeHandler}
+            onKeyDown={handleKeyPress}
+            type='text'
+            id='searchByName'
+            placeholder='Search By Name & breed.'
+          />
+          <StyledButton
+            style={{ margin: '0.2rem' }}
+            onClick={() => searchHandler('search')}
+          >
+            Search
+          </StyledButton>
+        </Search>
+      </FilterWrapper>
 
-        <AnimalsListContainer>
-          <AnimatePresence>
-            {status === 'pending' && (
-              <AnimalsListSkeleton key='animalsListSkeleton' />
-            )}
+      <AnimalsListContainer>
+        <AnimatePresence>
+          {status === 'pending' && (
+            <AnimalsListSkeleton key='animalsListSkeleton' />
+          )}
 
-            {status === 'idle' &&
-              animals.map((animal) => (
-                <AnimalCard
-                  key={animal._id}
-                  animal={animal}
-                />
-              ))}
-          </AnimatePresence>
+          {status === 'idle' &&
+            animals.map((animal) => (
+              <AnimalCard
+                key={animal._id}
+                animal={animal}
+              />
+            ))}
+        </AnimatePresence>
 
-          <LoadMoreBlock>
-            <CloseButton onClick={onLoadMore}>Load More</CloseButton>
-          </LoadMoreBlock>
-        </AnimalsListContainer>
-      </Wrapper>
-    </>
+        <LoadMoreBlock>
+          <CloseButton onClick={onLoadMore}>Load More</CloseButton>
+        </LoadMoreBlock>
+      </AnimalsListContainer>
+    </Wrapper>
   );
 };
 
