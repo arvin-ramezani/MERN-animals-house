@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { device } from '../../utils/breakpoints';
 
 export const Wrapper = styled.footer`
@@ -92,11 +93,17 @@ export const Address = styled.div`
 `;
 
 export const Browse = styled.div`
+  ul {
+    padding: 0;
+  }
+
   li {
     margin: 0.4rem 0;
     transition: 0.3s;
     font-size: 0.8rem;
     letter-spacing: 1px;
+    width: fit-content;
+
     &:hover {
       color: #bedd67;
     }

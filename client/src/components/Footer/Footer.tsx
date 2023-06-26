@@ -93,13 +93,15 @@ const Footer: FC = () => {
           </Address>
           <Browse>
             <h6>Browse</h6>
-            <li>Affiliate Program</li>
-            <li>Live Arrival Guarantee</li>
-            <li>We Byu Animals</li>
-            <li>Animals Payment Plan</li>
-            <li>Animal Shipping And Other Shipping Policies</li>
-            <li>Terms Of Service</li>
-            <li>Privacy Statement</li>
+            <ul>
+              <li>Affiliate Program</li>
+              <li>Live Arrival Guarantee</li>
+              <li>We Byu Animals</li>
+              <li>Animals Payment Plan</li>
+              <li>Animal Shipping And Other Shipping Policies</li>
+              <li>Terms Of Service</li>
+              <li>Privacy Statement</li>
+            </ul>
           </Browse>
           <About>
             <h6>About AnimalsHouse</h6>

@@ -6,11 +6,11 @@ export const fetchAllAnimals = async (req: Request, res: Response) => {
   const search = req.query.search as string;
   let animals;
 
-  // const title = new RegExp(searchQuery, "i")
   const page = +(req.query.page as string) || 1;
   const itemsPerPage = 6;
   const skipItems = (+page - 1) * itemsPerPage;
   let animalsLength: number;
+
   // Query Params
   let query: {
     category?: string;
@@ -20,8 +20,6 @@ export const fetchAllAnimals = async (req: Request, res: Response) => {
   if (category) {
     query = { category };
   } else if (search) {
-    console.log(search, 'search');
-
     query = {
       $or: [
         { name: { $regex: new RegExp(search.trim(), 'i') } },
