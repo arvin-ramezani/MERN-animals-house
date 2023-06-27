@@ -18,7 +18,6 @@ export const FilterWrapper = styled.div`
   align-items: center;
 
   @media ${device.tablet} {
-    top: 0;
     flex-direction: row;
     align-items: flex-end;
     justify-content: center;

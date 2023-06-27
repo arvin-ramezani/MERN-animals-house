@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 
 import {
   Wrapper,
@@ -16,13 +16,20 @@ import { authButtonVariants } from './Navbar.variants';
 
 const Navbar: FC = () => {
   const { userInfo } = useAppSelector(selectUser);
+  const { scrollY } = useViewportScroll();
+  const bgColor = useTransform(scrollY, [0, 50], ['#000', '#0000009e']);
 
   const logoutHandler = () => {
     persistor.purge();
   };
 
   return (
-    <Wrapper>
+    <Wrapper
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: 'spring', stiffness: 120, damping: 20 }}
+      style={{ backgroundColor: bgColor }}
+    >
       <Container>
         <Logo>
           <Link to='/'>

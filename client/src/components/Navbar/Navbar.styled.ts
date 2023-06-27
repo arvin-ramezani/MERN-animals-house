@@ -1,13 +1,11 @@
 import styled from 'styled-components';
-// breakpoints
-import { device } from '../../utils/breakpoints';
 import { motion } from 'framer-motion';
 
-export const Wrapper = styled.header`
-  background: rgba(0, 0, 0, 0.8);
+export const Wrapper = styled(motion.header)<{ bgColor?: string }>`
   position: sticky;
   top: 0;
   z-index: 3;
+  transition: background 0.5s cubic-bezier(0.4, 0, 1, 1);
 `;
 
 export const Container = styled.div`
