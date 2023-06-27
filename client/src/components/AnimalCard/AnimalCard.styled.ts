@@ -22,11 +22,11 @@ export const Wrapper = styled(motion.div)<IIsOpen>`
   color: #eaeaea;
   margin: 0.5rem 1rem;
   border-radius: 0.5rem;
-  height: auto;
   transition: all 0.2s;
   overflow-y: auto;
   overflow-x: hidden;
 
+  height: ${({ open }) => (open ? '70%' : 'auto')};
   cursor: ${({ open }) => (open ? 'default' : 'pointer')};
   position: ${({ open }) => (open ? 'fixed' : 'relative')};
   top: ${({ open }) => (open ? '50%' : '0')};
@@ -70,7 +70,7 @@ export const Wrapper = styled(motion.div)<IIsOpen>`
   }
 
   @media ${device.laptop} {
-    width: ${({ open }) => (open ? '992px' : '430px')};
+    width: ${({ open }) => (open ? '900px' : '430px')};
     gap: 2rem;
   }
 `;
@@ -144,7 +144,7 @@ export const CardImg = styled.div`
   }
 
   @media ${device.laptop} {
-    height: 235px;
+    height: 225px;
   }
 `;
 
