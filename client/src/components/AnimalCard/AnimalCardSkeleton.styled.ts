@@ -32,7 +32,7 @@ export const StyledAnimalsListSkeleton = styled(motion.div)`
 export const StyledAnimalSkeleton = styled(motion.div)`
   background: ${skeletonBackgrounds.main};
   padding: 1rem 0.8rem 2rem;
-  width: 80%;
+  width: 100%;
   margin: 0;
   border-radius: ${skeletonBorderRadius.large};
   height: auto;
@@ -40,7 +40,7 @@ export const StyledAnimalSkeleton = styled(motion.div)`
   overflow: hidden;
   left: 0;
   top: 0;
-  z-index: 2;
+  z-index: 1;
 
   @media ${device.mobileL} {
     width: 430px;

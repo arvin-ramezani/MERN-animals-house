@@ -5,14 +5,13 @@ import { device } from '../../utils/breakpoints';
 
 export const Wrapper = styled.div`
   margin-top: 3rem;
-  overflow: hidden;
 `;
 
 export const FilterWrapper = styled.div`
   background-color: #bedd67;
   padding: 0.4rem;
   position: sticky;
-  top: 0;
+  top: 86px;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -75,15 +74,16 @@ export const AnimalsListContainer = styled.div`
   align-items: center;
   gap: 1rem;
   position: relative;
-  margin: 2rem 0;
+  padding: 2rem 0;
   position: relative;
+  overflow: hidden;
 
   @media ${device.mobileL} {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    margin: 4rem 0;
+    padding: 4rem 0;
   }
 `;
 

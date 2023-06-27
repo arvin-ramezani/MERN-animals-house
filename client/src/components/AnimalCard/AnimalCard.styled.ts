@@ -12,7 +12,7 @@ export const AnimalCardBackdrop = styled(motion.div)`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 2;
+  z-index: 3;
 `;
 
 export const Wrapper = styled(motion.div)<IIsOpen>`
@@ -25,12 +25,22 @@ export const Wrapper = styled(motion.div)<IIsOpen>`
   height: auto;
   transition: all 0.2s;
   overflow-y: auto;
+  overflow-x: hidden;
 
   cursor: ${({ open }) => (open ? 'default' : 'pointer')};
   position: ${({ open }) => (open ? 'fixed' : 'relative')};
   top: ${({ open }) => (open ? '50%' : '0')};
-  z-index: ${({ open }) => open && 2};
+  z-index: ${({ open }) => open && 3};
   box-shadow: ${({ open }) => (open ? '0px 0px 16px 4px #106ddb' : 'none')};
+
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #bedd67;
+    border-radius: 20px;
+  }
 
   .text-container {
     display: flex;

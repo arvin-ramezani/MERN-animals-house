@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { device } from '../../utils/breakpoints';
 
 export const Wrapper = styled.div`
-  margin: 4rem auto 0;
+  margin: 0 auto;
+  padding: 3rem 0;
 
   .awssld__bullets button {
     width: 8px !important;

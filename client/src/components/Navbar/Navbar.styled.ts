@@ -5,6 +5,9 @@ import { motion } from 'framer-motion';
 
 export const Wrapper = styled.header`
   background: rgba(0, 0, 0, 0.8);
+  position: sticky;
+  top: 0;
+  z-index: 3;
 `;
 
 export const Container = styled.div`
