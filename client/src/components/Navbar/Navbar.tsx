@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
 import {
   Wrapper,
   Container,
@@ -10,12 +12,7 @@ import {
 import { useAppSelector } from '../../app/Hook';
 import { persistor } from '../../app/store';
 import { selectUser } from '../../features/user/userSlice';
-import { Variants } from 'framer-motion';
-
-const styledButtonVariants: Variants = {
-  hover: { scale: 1.1 },
-  tap: { scale: 0.9 },
-};
+import { authButtonVariants } from './Navbar.variants';
 
 const Navbar: FC = () => {
   const { userInfo } = useAppSelector(selectUser);
@@ -29,8 +26,9 @@ const Navbar: FC = () => {
       <Container>
         <Logo>
           <Link to='/'>
-            <img
-              src={'./images/logo/logo.png'}
+            <motion.img
+              whileHover={{ rotate: 360, scale: 0.8 }}
+              src={'./images/logo/animals-house-logo.svg'}
               alt='logo'
             />
           </Link>
@@ -38,7 +36,7 @@ const Navbar: FC = () => {
         <AccountWrapper>
           {userInfo ? (
             <StyledButton
-              variants={styledButtonVariants}
+              variants={authButtonVariants}
               whileHover={'hover'}
               whileTap={'tap'}
               className='navbar-logout'
@@ -50,7 +48,7 @@ const Navbar: FC = () => {
             <>
               <Link to='/login'>
                 <StyledButton
-                  variants={styledButtonVariants}
+                  variants={authButtonVariants}
                   whileHover={'hover'}
                   whileTap={'tap'}
                 >
@@ -59,7 +57,7 @@ const Navbar: FC = () => {
               </Link>
               <Link to='/register'>
                 <StyledButton
-                  variants={styledButtonVariants}
+                  variants={authButtonVariants}
                   whileHover={'hover'}
                   whileTap={'tap'}
                 >

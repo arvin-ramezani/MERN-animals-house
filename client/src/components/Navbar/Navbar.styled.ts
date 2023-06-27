@@ -12,17 +12,13 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 1rem 0;
 `;
 
-export const Logo = styled.div`
-  padding: 1rem 0;
-
+export const Logo = styled(motion.div)`
   img {
-    width: 140px;
-
-    @media ${device.tablet} {
-      width: 180px;
-    }
+    width: 50px;
+    border-radius: 0.5rem;
   }
 `;
 
