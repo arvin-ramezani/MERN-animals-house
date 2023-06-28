@@ -67,10 +67,6 @@ const AnimalCard: FC<IAnimalCardProps> = ({
     }
   }, [openAnimalCard]);
 
-  // useEffect(() => {
-  //   console.log(loading, 'loading');
-  // }, [loading]);
-
   return (
     <>
       <AnimatePresence>

@@ -1,6 +1,6 @@
-import React, { KeyboardEventHandler, useEffect, useState } from 'react';
+import React, { KeyboardEventHandler, useMemo, useState } from 'react';
 import { useSnackbar } from 'notistack';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 import {
@@ -20,8 +20,13 @@ import {
 import { StyledButton } from '../Navbar/Navbar.styled';
 import AnimalCard from '../AnimalCard/AnimalCard';
 import { CloseButton } from '../AnimalCard/AnimalCard.styled';
-import useQuery from '../../hooks/useQuery';
 import { animalsListVariants } from './AnimalsList.variants';
+
+function useQuery() {
+  const { search } = useLocation();
+
+  return useMemo(() => new URLSearchParams(search), [search]);
+}
 
 const AnimalsList = () => {
   const history = useHistory();
@@ -31,20 +36,22 @@ const AnimalsList = () => {
     status,
   } = useAppSelector(selectAnimals);
   const [searchInputValue, setSearchInputValue] = useState('');
-  const { getQuery } = useQuery();
-  const [page, setPage] = useState(+(getQuery('page') || 1));
+  const searchParam = useQuery();
+  const [page, setPage] = useState(+(searchParam.get('page') || 1));
   const { enqueueSnackbar } = useSnackbar();
 
   const dispatch = useAppDispatch();
 
   const onLoadMore = () => {
+    console.log(page, 'page', console.log(searchParam.get('page')));
+
     if (page >= totalPages) {
       enqueueSnackbar('There is no more animals', { variant: 'error' });
       return;
     }
 
-    const categoryQuery = getQuery('category');
-    const nameQuery = getQuery('name');
+    const categoryQuery = searchParam.get('category');
+    const nameQuery = searchParam.get('name');
     const newPage = page + 1;
 
     if (categoryQuery) {
@@ -83,6 +90,7 @@ const AnimalsList = () => {
 
   const searchHandler = (queryKey: string, value?: string) => {
     if (queryKey === 'category' && value === 'all') {
+      setPage(1);
       dispatch(fetchAnimalsAsync(`page=${1}`)).then((res) => {
         history.push('/');
       });
@@ -108,10 +116,6 @@ const AnimalsList = () => {
       }
     }
   };
-
-  useEffect(() => {
-    dispatch(fetchAnimalsAsync(page.toString()));
-  }, []);
 
   return (
     <Wrapper>
