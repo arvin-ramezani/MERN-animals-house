@@ -30,7 +30,7 @@ export const StyledAnimalsListSkeleton = styled(motion.div)`
 `;
 
 export const StyledAnimalSkeleton = styled(motion.div)`
-  background: ${skeletonBackgrounds.main};
+  box-sizing: border-box;
   padding: 1rem 0.8rem 2rem;
   width: 100%;
   margin: 0;
@@ -42,17 +42,24 @@ export const StyledAnimalSkeleton = styled(motion.div)`
   top: 0;
   z-index: 1;
 
+  background: ${skeletonBackgrounds.main};
+
+  & > hr {
+    border: none;
+    border-bottom: 1px solid ${skeletonBackgrounds.content};
+  }
+
   @media ${device.mobileL} {
-    width: 430px;
+    /* width: 370px; */
   }
 
   @media ${device.tablet} {
     gap: 1rem;
-    width: 300px;
+    /* width: 300px; */
   }
 
   @media ${device.laptop} {
-    width: 430px;
+    /* width: 430px; */
     gap: 2rem;
   }
 `;

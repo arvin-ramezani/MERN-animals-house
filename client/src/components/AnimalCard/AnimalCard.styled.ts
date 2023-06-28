@@ -23,10 +23,10 @@ export const Wrapper = styled(motion.div)<IIsOpen>`
   margin: 0.5rem 1rem;
   border-radius: 0.5rem;
   transition: all 0.2s;
-  overflow-y: auto;
   overflow-x: hidden;
   max-height: 70%;
 
+  overflow-y: ${({ open }) => (open ? 'auto' : 'hidden')};
   height: ${({ open }) => (open ? '70%' : 'auto')};
   cursor: ${({ open }) => (open ? 'default' : 'pointer')};
   position: ${({ open }) => (open ? 'fixed' : 'relative')};
