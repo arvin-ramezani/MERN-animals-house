@@ -98,7 +98,7 @@ const AnimalCard: FC<IAnimalCardProps> = ({
         onClick={onAnimalCardClick}
       >
         <AnimatePresence>
-          {true && <AnimalCardSkeleton key='animalCardSkeleton' />}
+          {loading && <AnimalCardSkeleton key='animalCardSkeleton' />}
         </AnimatePresence>
 
         <CardHeader open={openAnimalCard}>

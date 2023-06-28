@@ -1,4 +1,4 @@
-import React, { KeyboardEventHandler, useState } from 'react';
+import React, { KeyboardEventHandler, useEffect, useState } from 'react';
 import { useSnackbar } from 'notistack';
 import { useHistory } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -108,6 +108,10 @@ const AnimalsList = () => {
       }
     }
   };
+
+  useEffect(() => {
+    dispatch(fetchAnimalsAsync(page.toString()));
+  }, []);
 
   return (
     <Wrapper>
