@@ -12,6 +12,7 @@ import {
   HelperText,
   Icon,
   LoginLink,
+  ButtonWrapper,
 } from './Register.styled';
 import { StyledButton } from '../../components/Navbar/Navbar.styled';
 import { loginSchema, registerSchema } from './yupSchema';
@@ -119,9 +120,11 @@ const Register: FC<{ login: boolean }> = ({ login }) => {
             </Input>
           )}
 
-          <StyledButton type='submit'>
-            {isLogin ? 'Login' : 'Register'}
-          </StyledButton>
+          <ButtonWrapper>
+            <StyledButton type='submit'>
+              {isLogin ? 'Login' : 'Register'}
+            </StyledButton>
+          </ButtonWrapper>
 
           <p>
             {isLogin

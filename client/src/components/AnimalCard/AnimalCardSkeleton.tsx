@@ -7,7 +7,6 @@ import {
   DetailsText,
   ImageBlock,
   StyledAnimalSkeleton,
-  StyledAnimalsListSkeleton,
   StyledShimmer,
 } from './AnimalCardSkeleton.styled';
 import {

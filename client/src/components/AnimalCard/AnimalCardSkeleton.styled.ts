@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const skeletonBackgrounds = {
   main: '#004699',
   content: '#0174fc',
-  shimmer: '#00469936',
+  shimmer: '#0174fc94',
 };
 
 const skeletonBorderRadius = {
@@ -145,7 +145,7 @@ export const StyledShimmer = styled(motion.div)`
   background: ${skeletonBackgrounds.shimmer};
   top: -24px;
   left: -70px;
-  width: 20%;
+  width: 15%;
   height: 110%;
   transform: rotate(12deg);
 `;

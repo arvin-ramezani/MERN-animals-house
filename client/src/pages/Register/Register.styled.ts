@@ -18,7 +18,7 @@ export const Container = styled.div`
 `;
 
 export const FormContainer = styled.form`
-  border-radius: 0.2rem;
+  border-radius: 0.5rem;
   background-color: #1ac913;
   display: flex;
   flex-direction: column;
@@ -73,6 +73,14 @@ export const Icon = styled.img`
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 240px;
+
+  & button {
+    width: 96%;
+  }
 `;
 
 export const LoginLink = styled.span`

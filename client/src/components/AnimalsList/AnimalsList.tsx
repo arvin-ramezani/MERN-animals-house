@@ -1,6 +1,6 @@
 import React, { KeyboardEventHandler, useState } from 'react';
 import { useSnackbar } from 'notistack';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 import {

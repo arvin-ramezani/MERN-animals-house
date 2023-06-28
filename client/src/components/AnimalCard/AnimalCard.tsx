@@ -85,7 +85,11 @@ const AnimalCard: FC<IAnimalCardProps> = ({
       </AnimatePresence>
 
       <Wrapper
-        whileHover={openAnimalCard ? undefined : { backgroundColor: '#033f85' }}
+        whileHover={
+          openAnimalCard
+            ? undefined
+            : { backgroundColor: '#013c82', transition: { duration: 0.2 } }
+        }
         open={openAnimalCard}
         as={motion.div}
         variants={animalCardVariants}
@@ -94,7 +98,7 @@ const AnimalCard: FC<IAnimalCardProps> = ({
         onClick={onAnimalCardClick}
       >
         <AnimatePresence>
-          {loading && <AnimalCardSkeleton key='animalCardSkeleton' />}
+          {true && <AnimalCardSkeleton key='animalCardSkeleton' />}
         </AnimatePresence>
 
         <CardHeader open={openAnimalCard}>
@@ -137,7 +141,7 @@ const AnimalCard: FC<IAnimalCardProps> = ({
           </div>
           <div className='text-container'>
             <p>Price:</p>
-            <span className='text-sm'>{price}</span>
+            <span className='text-sm'>{price} $</span>
           </div>
           {openAnimalCard && (
             <>

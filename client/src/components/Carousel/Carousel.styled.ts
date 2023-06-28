@@ -6,6 +6,10 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   padding: 3rem 0;
 
+  .awssld__controls button {
+    z-index: 2 !important;
+  }
+
   .awssld__bullets button {
     width: 8px !important;
     height: 8px !important;

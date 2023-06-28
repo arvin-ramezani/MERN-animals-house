@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Variants, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { device } from '../../utils/breakpoints';
 import { StyledButton as Button } from '../Navbar/Navbar.styled';
