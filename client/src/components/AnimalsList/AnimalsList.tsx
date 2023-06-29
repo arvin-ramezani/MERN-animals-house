@@ -92,14 +92,14 @@ const AnimalsList = () => {
     if (queryKey === 'category' && value === 'all') {
       setPage(1);
       dispatch(fetchAnimalsAsync(`page=${1}`)).then((res) => {
-        history.push('/');
+        history.push('/?page=1');
       });
       return;
     }
 
     if (queryKey === 'category') {
       dispatch(fetchAnimalsAsync(`${queryKey}=${value}`)).then((res) => {
-        history.push(`?category=${value}`);
+        history.push(`?category=${value}&page=1`);
       });
       return;
     }
@@ -108,7 +108,7 @@ const AnimalsList = () => {
       if (searchInputValue?.trim()) {
         dispatch(fetchAnimalsAsync(`${queryKey}=${searchInputValue}`)).then(
           (res) => {
-            history.push(`?search=${searchInputValue}`);
+            history.push(`?search=${searchInputValue}&page=1`);
             setSearchInputValue('');
           }
         );
