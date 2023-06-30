@@ -17,7 +17,7 @@ import { authButtonVariants } from './Navbar.variants';
 const Navbar: FC = () => {
   const { userInfo } = useAppSelector(selectUser);
   const { scrollY } = useViewportScroll();
-  const bgColor = useTransform(scrollY, [0, 50], ['#000', '#000000b3']);
+  const bgColor = useTransform(scrollY, [0, 50], ['#000000', '#000000b3']);
 
   const logoutHandler = () => {
     persistor.purge();

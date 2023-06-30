@@ -1,21 +1,22 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { PURGE } from "redux-persist/es/constants";
-import { loginUser, registerUser } from "../../API/publicApi";
-import { RootState } from "../../app/store";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
+import { PURGE } from 'redux-persist/es/constants';
+import { loginUser, registerUser } from '../../API/publicApi';
+import { RootState } from '../../app/store';
 import {
   ILoginUser,
   IRegisterUser,
   IUserState,
-} from "../../interfaces/interfaces";
+} from '../../interfaces/interfaces';
 
 const initialState: IUserState = {
   userInfo: null,
-  status: "idle",
+  status: 'idle',
 };
 
 // Register User
 export const registerUserAsync = createAsyncThunk(
-  "users/registerUserAsync",
+  'users/registerUserAsync',
 
   async (userInfo: IRegisterUser) => {
     const response = await registerUser(userInfo);
@@ -26,7 +27,7 @@ export const registerUserAsync = createAsyncThunk(
 
 // Login User
 export const loginUserAsync = createAsyncThunk(
-  "users/loginUserAsync",
+  'users/loginUserAsync',
 
   async (userInfo: ILoginUser) => {
     const response = await loginUser(userInfo);
@@ -36,7 +37,7 @@ export const loginUserAsync = createAsyncThunk(
 );
 
 export const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
 
   reducers: {},
@@ -44,34 +45,34 @@ export const userSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(registerUserAsync.pending, (state) => {
-        state.status = "pending";
+        state.status = 'pending';
       })
       .addCase(registerUserAsync.fulfilled, (state, { payload }) => {
-        state.status = "idle";
+        state.status = 'idle';
         state.userInfo = payload;
         localStorage.setItem(
-          "accessToken",
+          'accessToken',
           JSON.stringify(payload.accessToken)
         );
         localStorage.setItem(
-          "refreshToken",
+          'refreshToken',
           JSON.stringify(payload.refreshToken)
         );
       });
 
     builder
       .addCase(loginUserAsync.pending, (state) => {
-        state.status = "pending";
+        state.status = 'pending';
       })
       .addCase(loginUserAsync.fulfilled, (state, { payload }) => {
-        state.status = "idle";
+        state.status = 'idle';
         state.userInfo = payload;
         localStorage.setItem(
-          "accessToken",
+          'accessToken',
           JSON.stringify(payload.accessToken)
         );
         localStorage.setItem(
-          "refreshToken",
+          'refreshToken',
           JSON.stringify(payload.refreshToken)
         );
       });
@@ -82,7 +83,6 @@ export const userSlice = createSlice({
   },
 });
 
-// User Selector
 export const selectUser = (state: RootState) => state.user;
 
 export default userSlice.reducer;

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
 import { fetchAnimals, fetchAnimalsByQuery } from '../../API/publicApi';
 import { likeAnimal } from '../../API/userApi';
 import { RootState } from '../../app/store';
@@ -87,7 +88,6 @@ export const animalsSlice = createSlice({
   },
 });
 
-// Animals Selector
 export const selectAnimals = (state: RootState) => state.animals;
 
 export default animalsSlice.reducer;

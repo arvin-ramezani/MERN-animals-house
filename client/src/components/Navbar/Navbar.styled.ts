@@ -6,6 +6,7 @@ export const Wrapper = styled(motion.header)<{ bgColor?: string }>`
   top: 0;
   z-index: 3;
   transition: background 0.5s cubic-bezier(0.4, 0, 1, 1);
+  background-color: #000;
 `;
 
 export const Container = styled.div`

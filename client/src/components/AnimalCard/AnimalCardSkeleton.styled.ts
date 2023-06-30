@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import { device } from '../../utils/breakpoints';
-import { motion } from 'framer-motion';
 
 const skeletonBackgrounds = {
   main: '#004699',

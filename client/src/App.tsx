@@ -23,9 +23,11 @@ function App() {
             component={Home}
             exact
           />
+
           <Route path='/register'>
             {userInfo ? <Redirect to='/' /> : <Register login={false} />}
           </Route>
+
           <Route path='/login'>
             {userInfo ? <Redirect to='/' /> : <Register login />}
           </Route>
