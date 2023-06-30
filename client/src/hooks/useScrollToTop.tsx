@@ -16,8 +16,8 @@ const useScrollToTop = (): void => {
       const { pathname } = history.location;
 
       scrollPositions[pathname] = {
-        x: window.pageXOffset,
-        y: window.pageYOffset,
+        x: window.scrollX,
+        y: window.scrollY,
       };
     };
 
